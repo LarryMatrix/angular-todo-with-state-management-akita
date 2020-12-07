@@ -1,22 +1,35 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {TodoModel} from "./todo.model";
+import {Todo} from "./todo.model";
 import {environment} from "../environments/environment";
-
-const URL = environment.baseURL;
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  const API = URL;
+  private readonly baseURL = environment.baseURL
 
   constructor(private http: HttpClient) { }
 
-  private addTask(title: string, desc: string): Observable<TodoModel> {
-    return this.http.post(`${this.API}`, title)
+  public addTask(title: string, description: string): Observable<Todo> {
+    return this.http.post<Todo>(this.baseURL, {title, description})
+  }
+
+  public getTodos(): Observable<Todo[]> {
+    return this.http.get<{data: Todo[]}>(this.baseURL).pipe(
+      map((res) => res.data)
+    );
+  }
+
+  public deleteTodo(id: string): Observable<Todo> {
+    return this.http.delete<Todo>(`${this.baseURL}/${id}`)
+  }
+
+  public updateTodo(id: string, changes: any): Observable<Todo> {
+    return this.http.put<Todo>(`${this.baseURL}/${id}`, changes)
   }
 
 }
