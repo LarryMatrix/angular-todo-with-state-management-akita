@@ -26,7 +26,6 @@ export class AddTodoComponent implements OnInit {
   }
 
   addTodo() {
-    console.log('form:', this.form.value)
     this.todoStore.setLoading(true)
     this.apiService.addTask(
       this.form.controls.title.value,
