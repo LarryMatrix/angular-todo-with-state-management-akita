@@ -87,6 +87,7 @@ export class HomeComponent implements OnInit {
       error => {
         this.todoStore.setLoading(false)
         console.log('error: ', error)
+
       }
     )
   }
