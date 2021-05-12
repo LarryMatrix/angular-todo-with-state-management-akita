@@ -1,6 +1,6 @@
-import {Todo} from "../todo.model";
-import {Store, StoreConfig} from "@datorama/akita";
-import {Injectable} from "@angular/core";
+import { Todo } from '../todo.model';
+import { Store, StoreConfig } from '@datorama/akita';
+import { Injectable } from '@angular/core';
 
 export interface TodoState {
   todos: Todo[];
@@ -10,14 +10,14 @@ export interface TodoState {
 export const getInitialState = (): TodoState => {
   return {
     todos: [],
-    isLoaded: false
-  }
-}
+    isLoaded: false,
+  };
+};
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-@StoreConfig({name: 'todo'})
+@StoreConfig({ name: 'todo' })
 export class AkitaSessionStore extends Store<TodoState> {
   constructor() {
     super(getInitialState());
