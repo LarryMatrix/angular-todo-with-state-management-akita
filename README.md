@@ -1,4 +1,5 @@
 # AngularAkita
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6f23c291c5f44d97a55e0d56cb19c41d)](https://www.codacy.com/gh/LarryMatrix/angular-todo-with-state-management-akita/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LarryMatrix/angular-todo-with-state-management-akita&amp;utm_campaign=Badge_Grade)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
